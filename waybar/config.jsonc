@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "position": "top",
+    "spacing": 3,
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "group/group-net": {
+        "orientation": "inherit",
+        "modules": [
+            "network",
+            "bluetooth",
+        ]
+    },
+    "modules-right": [
+    "battery",
+    "wireplumber",
+    "hyprland/language",
+    "group/group-net",
+    ],
+    "hyprland/language": {
+        "format": "  {}",
+	"format-en": "en",
+	"format-ru": "ru"
+    },
+    "hyprland/workspaces": {
+	 "persistent-workspaces": {
+	     "*": 4
+	 },
+         "format": "{icon}",
+         "format-icons": {
+             "active": "",
+             "default": ""
+         },
+	 "on-scroll-up": "hyprctl dispatch workspace e+1",
+         "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 60,
+        "timezone": "Europe/Moscow",
+        "format": "{:%H:%M}",
+    },
+    "network": {
+        "interval": 60,
+        "interface-ethernet": "enp1s*",
+        "interface-wifi": "wlan0",
+        "format-ethernet": "",
+        "format-wifi": "󰖩",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "tooltip-format-wifi": "{essid} {ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "(No IP) ",
+        "format-disconnected": "󱚵",
+        "format-disabled": "󰖪",
+	"on-click": "kitty -e impala"
+    },
+    "battery": {
+	"format": "{icon}  {capacity}%",
+	"format-icons": ["", "", "", "", ""],
+	"format-charging": " {capacity}%",
+	"format-full": " full",
+	"interval": 30,
+        "states": {
+	    "warning": 30,
+	    "critical": 15
+	},
+	"tooltip": "{H}h{M}m"
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", "", " "]
+    	},
+        "on-click": "kitty -e pulsemixer"
+    },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": "",
+	"format-disabled": "󰂲", // an empty format will hide the module
+	"format-connected": "󰂱",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "kitty -e bluetui"
+    }
+}

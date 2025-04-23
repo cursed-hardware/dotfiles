@@ -1,0 +1,236 @@
+@import url("./frappe.css");
+
+* {
+    border: none;
+    border-radius: 3px;
+    font-family: JetBrainsMono Nerd Font, Font Awesome;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @base;
+    color: @text;
+    border-radius: 5px;
+}
+
+window#waybar>box {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background-color: @base;
+    border: 1px solid @surface1;
+}
+
+tooltip label {
+    color: @text;
+}
+
+button {
+    padding: 0 10px;
+    margin: 5px 1px;
+    border: none;
+    border-radius: 2px;
+    color: @mantle;
+    min-width: 25px;
+}
+
+button:hover {
+    background: inherit;
+}
+
+#workspaces button {
+    padding: 0 0;
+    color: @blue;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: @green;
+}
+
+#workspaces button.active {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: @blue;
+}
+
+#workspaces button.urgent {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: @red;
+}
+
+#taskbar button.active {
+    background-image: linear-gradient(0deg, @surface1, @mantle);
+}
+
+#mode {
+    background-color: @base;
+    box-shadow: inset 0 -2px @text;
+}
+
+#clock,
+#language,
+#wireplumber,
+#tray,
+#battery {
+    padding: 0 10px;
+    margin: 5px 1px;
+    color: @text;
+}
+
+#bluetooth,
+#network {
+    padding: 0 10px;
+    margin: 5px 0px;
+    color: @text;
+}
+
+#network {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#bluetooth {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+@keyframes battery-critical-pulse {
+    15% {
+        color: @mantle;
+        background-color: @red;
+        box-shadow: 0 0 5px 0 @red;
+    }
+}
+
+#battery {
+    background-color: @green;
+    color: @mantle;
+}
+
+#battery.warning {
+    background-color: @yellow;
+    color: @mantle;
+}
+
+#battery.critical {
+    background-color: @mantle;
+    animation: battery-critical-pulse 0.75s infinite;
+    color: @mantle;
+}
+
+#clock {
+    background-color: @base;
+    color: @text;
+}
+
+@keyframes blink {
+    to {
+        background-color: @mantle;
+        color: @text;
+    }
+}
+
+label:focus {
+    background-color: @mantle;
+}
+
+#cpu {
+    background-color: @mauve;
+    color: @mantle;
+    min-width: 45px;
+}
+
+#memory {
+    background-color: @red;
+    color: @mantle;
+}
+
+#network {
+    background-color: @blue;
+    color: @mantle;
+}
+
+#network.disconnected {
+    background-color: @red;
+    color: @mantle;
+}
+
+#bluetooth {
+    background-color: @blue;
+    color: @mantle;
+}
+
+#wireplumber {
+    background-color: @blue;
+    color: @mantle;
+}
+
+#wireplumber.muted {
+    background-color: @red;
+    color: @mantle;
+}
+
+#temperature {
+    background-color: @pink;
+    color: @mantle;
+    min-width: 37px;
+}
+
+#temperature.critical {
+    background-color: red;
+    color: @mantle;
+    min-width: 37px;
+}
+
+#tray {
+    background-color: @overlay0;
+    color: @text;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @mantle;
+}
+
+#idle_inhibitor {
+    background-color: @base;
+    color: @text;
+    font-family: Inter;
+}
+
+#idle_inhibitor.activated {
+    background-color: @text;
+    color: @base;
+}
+
+#language {
+    background-color: @blue;
+    color: @mantle;
+}
